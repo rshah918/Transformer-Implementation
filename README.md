@@ -1,5 +1,5 @@
 # Transformer-Implementation
-Scratch implemented a transformer model in Pytorch
+Scratch implemented a transformer model in Pytorch. I trained my network to learn a sine wave
 # How to Use:
 Option 1: Run `python3 transformer.py` in your terminal
 
