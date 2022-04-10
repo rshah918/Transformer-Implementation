@@ -143,8 +143,8 @@ class MultiHeadAttention(nn.Module):
         
         #pass query,key,value through their respective dense layers
         l1 = self.linears[0](query)
-        l2 = self.linears[0](query)
-        l3 = self.linears[0](query)
+        l2 = self.linears[1](query)
+        l3 = self.linears[2](query)
         #reshape dense outputs from d_model to (n_batches,num_heads,d_k)
         query = l1.view(nbatches, -1, self.num_heads, self.d_k).transpose(1, 2)
         key = l2.view(nbatches, -1, self.num_heads, self.d_k).transpose(1, 2)
@@ -291,7 +291,7 @@ X.shape, Y.shape
 Create Training Loop
 """
 
-NUM_EPOCHS = 5
+NUM_EPOCHS = 8
 #instantiate transformer
 d_model = 50
 len_feedforward = 64
