@@ -38,7 +38,7 @@ class MultiHeadAttention(nn.Module):
             exit(1)
         self.num_heads = num_heads
         self.head_dimension = len_embedding // num_heads
-        self.attention_layers = [Attention(len_embedding, self.head_dimension) for i in range(num_heads)]
+        self.attention_layers = nn.ModuleList([Attention(len_embedding, self.head_dimension) for i in range(num_heads)])
         self.final_linear = nn.Linear(len_embedding, len_embedding)
     
     def forward(self, sequence, mask=False):
